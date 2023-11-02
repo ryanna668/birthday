@@ -1,0 +1,111 @@
+body {
+    font-family: Calibri, sans-serif;
+    background-color: #e9f2ff;
+    display: flex;
+    flex-direction: column; /* Change the direction to stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    display: flex; /* Use flex to align the card-container and footer side by side */
+    flex-direction: column; /* Stack elements vertically within the container */
+    align-items: center;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 50px;
+}
+
+.card {
+    width: 220px;
+    height: 220px;
+    perspective: 1000px;
+    cursor: pointer;
+    border-radius: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 20px;
+}
+
+.card-front {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3498db;
+    color: #fff;
+}
+
+.card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.card-back {
+    background-color: #2c5ab5;
+    color: #ffffff;
+    padding: 15px; /* Increase the padding for more spacing */
+    transform: rotateY(180deg);
+    box-sizing: border-box; /* Ensure padding is included in the defined dimensions */
+    font-size: small;
+}
+
+
+.header{
+margin-bottom: 40px;
+    text-align: center;
+    align-self: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+h1{
+    color: #2c5ab5;
+}
+
+
+.footer {
+    margin-top: 40px;
+    text-align: center;
+    align-self: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.footer p {
+    margin: 2px; /* Remove default margin */
+    padding: 2px; /* Remove default padding */
+}
